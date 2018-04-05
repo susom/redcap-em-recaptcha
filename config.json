@@ -1,0 +1,65 @@
+{
+  "name": "REDCaptcha",
+
+  "namespace":"Stanford\\REDCaptcha",
+
+  "description": "reCaptcha for REDCap - applies only to public surveys",
+
+  "versions": [
+    { "0.1": "Initial" }
+  ],
+
+  "authors": [
+    {
+      "name": "Andrew Martin",
+      "email": "andy123@stanford.edu",
+      "institution": "Stanford University"
+    },
+    {
+      "name": "Alvaro Alvarez",
+      "email": "alvaro1@stanford.edu",
+      "institution": "Stanford University"
+    }
+  ],
+
+  "permissions": [
+    "hook_survey_page_top"
+  ],
+
+  "links": {
+    "control-center": [
+    ],
+    "project": [
+    ]
+  },
+
+  "system-settings": [
+    {
+      "key": "site-key",
+      "name": "<b>Google API Recaptcha Site Key</b><br>misc...",
+      "required": true,
+      "type": "text"
+    },
+    {
+      "key": "secret-key",
+      "name": "<b>Google API Recaptcha Secret Key</b><br>misc...",
+      "required": true,
+      "type": "text"
+    }
+  ],
+
+  "project-settings": [
+    {
+      "key": "recaptcha-message",
+      "name": "<b>Custom Instructions</b><br><i>This optional value will be displayed<br>above the REDCaptcha box. You may use HTML here.</i>",
+      "required": false,
+      "type": "textarea"
+    },
+    {
+      "key": "recaptcha-error-message",
+      "name": "<b>Custom Error Message</b><br><i>This optional value will be displayed<br>if there is an error.</i>",
+      "required": false,
+      "type": "textarea"
+    }
+  ]
+}
