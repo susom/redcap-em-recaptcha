@@ -1,4 +1,4 @@
-# redcap-em-recaptcha
+# redcap-em-redcaptcha
 This external module, if enabled, will force [Google reCaptcha](https://developers.google.com/recaptcha/) on your public survey url.
  
 #### System Level Directions
