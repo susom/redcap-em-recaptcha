@@ -14,16 +14,16 @@ class REDCaptcha extends \ExternalModules\AbstractExternalModule
 
 
         // IS THIS A PUBLIC SURVEY?
-        self::log("POST", $_POST);
-        self::log("Record", $record);
+        self::sLog("POST", $_POST);
+        self::sLog("Record", $record);
         // Get the survey id
         global $Proj;
         $survey_id = @$Proj->forms[$instrument]['survey_id'];
-        self::log("SurveyID: " . $survey_id);
+        self::sLog("SurveyID: " . $survey_id);
 
         // Get the public hash for this arm
         $public_hash = Survey::getSurveyHash($survey_id, $event_id);
-        self::log("Hash: " . $public_hash);
+        self::sLog("Hash: " . $public_hash);
 
         // Skip if not the public survey
         if ($public_hash !== $survey_hash) {
@@ -32,7 +32,7 @@ class REDCaptcha extends \ExternalModules\AbstractExternalModule
         }
 
 
-        self::log("This is the public survey");
+        self::sLog("This is the public survey");
 
 
         // Is this a recaptcha post-back
@@ -42,23 +42,23 @@ class REDCaptcha extends \ExternalModules\AbstractExternalModule
             $ip = $_SERVER['REMOTE_ADDR'];
             $response = http_get("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
             $responseKeys = json_decode($response,true);
-            self::log($responseKeys);
+            self::sLog($responseKeys);
 
             if ($responseKeys['success'] !== true) {
-                self::log("recaptcha failed");
+                self::sLog("recaptcha failed");
                 $recaptcha_error_message = $this->getProjectSetting("recaptcha-error-message");
                 if (empty($recaptcha_error_message)) $recaptcha_error_message = "Invalid reCaptcha Response";
                 echo "<div class='invalid-response alert alert-danger text-center'>$recaptcha_error_message</div>";
             } else {
                 // Success
-                self::log("recaptcha success");
+                self::sLog("recaptcha success");
                 // Let survey proceed
                 return true;
             }
         }
 
 
-        self::log(__LINE__);
+        self::sLog(__LINE__);
 
         // Render recaptch form
         $site_key = $this->getSystemSetting("site-key");
@@ -140,7 +140,7 @@ class REDCaptcha extends \ExternalModules\AbstractExternalModule
 
 
     // Log Wrapper
-    public static function log() {
+    public static function sLog() {
         if (self::isDev()) {
             if (class_exists("Stanford\REDCaptcha\Util")) {
                 call_user_func_array("Stanford\REDCaptcha\Util::log", func_get_args());
