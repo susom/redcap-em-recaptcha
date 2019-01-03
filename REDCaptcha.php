@@ -119,12 +119,11 @@ class REDCaptcha extends \ExternalModules\AbstractExternalModule
 
 
         // Prevent the rest of the survey page from being rendered until we verify recaptcha
-        \ExternalModules\ExternalModules::exitAfterHook();
-
+        // \ExternalModules\ExternalModules::exitAfterHook();
+        $this->exitAfterHook();
 
         // self::log(__METHOD__, "Stopping");
         // return false;
-
 
     }
 

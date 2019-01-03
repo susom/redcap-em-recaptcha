@@ -6,7 +6,10 @@
   "description": "reCaptcha for REDCap - applies only to public surveys",
 
   "versions": [
-    { "0.1": "Initial" }
+    {
+      "0.1": "Initial",
+      "1.0": "Bug fix for exitAfterHook"
+    }
   ],
 
   "authors": [
@@ -36,13 +39,13 @@
   "system-settings": [
     {
       "key": "site-key",
-      "name": "<b>Google API Recaptcha Site Key</b><br>misc...",
+      "name": "<b>Google API Recaptcha Site Key</b><br>This should be a v2 recaptcha site-key",
       "required": true,
       "type": "text"
     },
     {
       "key": "secret-key",
-      "name": "<b>Google API Recaptcha Secret Key</b><br>misc...",
+      "name": "<b>Google API Recaptcha Secret Key</b><br>This should be a v2 recaptcha secret-key",
       "required": true,
       "type": "text"
     }

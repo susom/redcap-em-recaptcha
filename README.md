@@ -3,6 +3,7 @@ This external module, if enabled, will force [Google reCaptcha](https://develope
  
 #### System Level Directions
  * Establish a goolge API key for reCaptcha [here](https://www.google.com/recaptcha/admin#list)
+   * This module was developed with version 2 (v2) of reCaptcha using the checkbox method
  * Be sure to add the domain of your REDCap server (e.g. redcap.myschool.edu) to the reCaptcha configuration.
  
    > Note that only one API key is needed for an entire server.  All projects will use this same reCaptcha
@@ -15,5 +16,5 @@ This external module, if enabled, will force [Google reCaptcha](https://develope
 #### Example
 ![Example REDCaptcha Survey](docs/example.png)
  
-*Last tested on v8.3.2*
+*Last tested on v8.9.3*
  
