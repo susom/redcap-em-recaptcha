@@ -8,7 +8,8 @@
   "versions": [
     {
       "0.1": "Initial",
-      "1.0": "Bug fix for exitAfterHook"
+      "1.0": "Initial public release",
+      "1.0.1": "Bug fix for exitAfterHook"
     }
   ],
 
